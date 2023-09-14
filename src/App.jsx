@@ -50,6 +50,102 @@ function App() {
         <button class="rounded-lg bg-green-300 px-4 py-2 font-bold">-</button>
       </div>
 
+      <div>
+        <button class=" rounded-2xl bg-black px-4 py-1 text-white ">
+          Click Me
+        </button>
+      </div>
+
+      <br></br>
+      <div class="flex">
+        <div class="px-4">
+          <div class="bg-zinc-400 h-24 w-28 rounded-lg"></div>
+        </div>
+        <div>
+          <span class="font-semibold">Product Name</span>
+          <div>
+            <span class="font-semibold">Rs 1000</span>
+          </div>
+          <button class="rounded-lg bg-green-300 px-4 py-1 font-bold my-4">
+            - 1 +
+          </button>
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="px-4">
+          <div class="bg-zinc-400 h-24 w-28 rounded-lg"></div>
+        </div>
+        <div>
+          <span class="font-semibold">Product Name</span>
+          <div>
+            <span class="font-semibold">Rs 1000</span>
+          </div>
+          <button class="rounded-lg bg-green-300 px-4 py-1 font-bold my-4">
+            - 1 +
+          </button>
+        </div>
+      </div>
+
+      <hr class="px-6 py-1"></hr>
+      <div class="flex">
+        <div class="px-4">
+          <div class="bg-zinc-400 h-24 w-28"></div>
+        </div>
+        <div>
+          <span class="font-semibold">Item :</span>
+          <div>
+            <span class="font-semibold">Product :</span>
+          </div>
+          <span class="font-semibold">Name :</span>
+        </div>
+        <div class="ml-52 text-center">
+          <span class="font-semibold">Quantity :</span>
+        </div>
+        <div class="ml-52 text-center">
+          <span class="font-semibold">Subtotal :</span>
+        </div>
+      </div>
+      <hr class="px-6 py-1"></hr>
+
+      <hr class="px-6 py-1"></hr>
+      <div class="flex">
+        <div class="px-4">
+          <div class="bg-zinc-400 h-24 w-28"></div>
+        </div>
+        <div>
+          <span class="font-semibold">Item :</span>
+          <div>
+            <span class="font-semibold">Product :</span>
+          </div>
+          <span class="font-semibold">Name :</span>
+        </div>
+        <div class="ml-52 text-center">
+          <span class="font-semibold">Quantity :</span>
+        </div>
+        <div class="ml-52 text-center">
+          <span class="font-semibold">Subtotal :</span>
+        </div>
+      </div>
+
+      <hr></hr>
+      <div class="flex py-4 px-36">
+        <div>
+          <span class="font-semibold">Order Total </span>
+        </div>
+        <div class="ml-52 text-center  px-72">
+          <span class="font-semibold">Rs.4499 </span>
+        </div>
+      </div>
+
+      <hr></hr>
+      <br></br>
+      <div>
+        <button class="ml-72 rounded-2xl bg-black px-4 py-1 text-white ">
+          Continue Shopping
+        </button>
+      </div>
+
       <ul class="my-2 space-y-2">
         <li class="bg-white p-2 first:bg-yellow-100">Item 1</li>
         <li class="bg-white p-2 first:bg-yellow-100 odd:bg-200 even:bg-green-200">
@@ -172,9 +268,9 @@ function App() {
             <span class="font-semibold">Item 5 </span>
           </div>
         </div>
-        <div >
-          <div class="bg-zinc-400 rounded-lg shadow-lg h-10 w-40 flex grid-cols-2 gap-3"></div>
-          <div class="my-4 bg-zinc-400 rounded-lg shadow-lg h-10 w-40 flex grid-cols-2 gap-3"></div>
+        <div>
+          <div class="bg-zinc-400 rounded-lg shadow-lg h-10 w-40 flex grid-cols-2"></div>
+          <div class="my-4 bg-zinc-400 rounded-lg shadow-lg h-10 w-40 flex grid-cols-2"></div>
         </div>
       </div>
     </main>
