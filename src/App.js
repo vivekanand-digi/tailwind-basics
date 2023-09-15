@@ -4,14 +4,19 @@ import { FiShoppingCart } from "react-icons/fi";
 import { BiUserCircle } from "react-icons/bi";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 
 function App() {
 
   const [menuContent, setMenuContent] = useState(null);
-  
+  const [quantity, setQuantity] = useState(0);
+  const basePrice = 1000;
+  const totalAmount =
+    quantity === 0 ? basePrice : basePrice * quantity;
+
   const handleMenHover = () => {
     setMenuContent(
-      <div className="px-10 py-4">
+      <div class="px-10 py-4">
         <li>TopWear</li>
         <li>BottomWear</li>
         <li>FootWear</li>
@@ -22,7 +27,7 @@ function App() {
 
   const handleWomenHover = () => {
     setMenuContent(
-      <div className="px-10 py-4">
+      <div class="px-10 py-4">
         <li>TopWear</li>
         <li>FootWear</li>
         <li>SportWear</li>
@@ -35,32 +40,42 @@ function App() {
     setMenuContent(null);
   };
 
+  const incrementQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrementQuantity = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   return (
     <main class="p-3 ">
       <h1 class="text-center text-lg text-red-500">Hello Good Morning </h1>
 
-      <ul className="flex justify-between items-center bg-violet-300 px-14 py-2">
+      <ul class="flex justify-between items-center bg-violet-300 px-14 py-2">
         <div
-          className="flex group cursor-pointer relative"
+          class="flex group cursor-pointer relative"
           onMouseEnter={handleMenHover}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="font-mono font-bold px-6">MEN</div>
+          <div class="font-mono font-bold px-6">MEN</div>
           {menuContent && (
-            <ul className="hidden absolute left-0 mt-7 py-2 bg-white border rounded-lg shadow-lg group-hover:block">
+            <ul class="hidden absolute left-0 mt-7 py-2 bg-white border rounded-lg shadow-lg group-hover:block">
               {menuContent}
             </ul>
           )}
         </div>
 
         <div
-          className="flex group cursor-pointer relative"
+          class="flex group cursor-pointer relative"
           onMouseEnter={handleWomenHover}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="font-mono font-bold px-6">WOMEN</div>
+          <div class="font-mono font-bold px-6">WOMEN</div>
           {menuContent && (
-            <ul className="hidden absolute left-0 mt-7 py-2 bg-white border rounded-lg shadow-lg group-hover:block">
+            <ul class="hidden absolute left-0 mt-7 py-2 bg-white border rounded-lg shadow-lg group-hover:block">
               {menuContent}
             </ul>
           )}
@@ -69,7 +84,7 @@ function App() {
         <li class="font-mono font-bold"> HOME&LIVING</li>
         <li class="font-mono font-bold"> BEAUTY</li>
         <div class="relative">
-          <AiOutlineSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
+          <AiOutlineSearch class="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
           <input
             class="pl-10 placeholder-gray-400 text-gray-700 bg-white rounded shadow focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
             placeholder="Enter your search query...."
@@ -121,36 +136,34 @@ function App() {
         </button>
       </div>
       <br />
-      <div class="flex">
-        <div class="px-4">
-          <div class="bg-zinc-400 h-24 w-28 rounded-lg"></div>
-        </div>
-        <div>
-          <span class="font-semibold">Product Name</span>
-          <div>
-            <span class="font-semibold">Rs 1000</span>
-          </div>
-          <button class="rounded-lg bg-green-300 px-4 py-1 font-bold my-4">
-            - 1 +
-          </button>
-        </div>
-      </div>
 
       <div class="flex">
         <div class="px-4">
           <div class="bg-zinc-400 h-24 w-28 rounded-lg"></div>
         </div>
         <div>
-          <span class="font-semibold">Product Name</span>
+          <span class="font-semibold">Product Name <AiFillDelete  />
+          </span>
           <div>
-            <span class="font-semibold">Rs 1000</span>
+            <span class="font-semibold">Rs {totalAmount}</span>
           </div>
-          <button class="rounded-lg bg-green-300 px-4 py-1 font-bold my-4">
-            - 1 +
-          </button>
+          <div class="flex items-center">
+            <button
+              class="rounded-lg bg-green-300 px-4 py-1 font-bold my-4"
+              onClick={decrementQuantity}
+            >
+              -
+            </button>
+            <span class="px-4 font-bold">{quantity}</span>
+            <button
+              class="rounded-lg bg-green-300 px-4 py-1 font-bold my-4"
+              onClick={incrementQuantity}
+            >
+              +
+            </button>
+          </div>
         </div>
       </div>
-
       <hr class="px-6 py-1" />
       <div class="flex">
         <div class="px-4">
