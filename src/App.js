@@ -1,26 +1,91 @@
+import React, { useState } from 'react';
 import "./App.css";
+import { FiShoppingCart } from "react-icons/fi";
+import { BiUserCircle } from "react-icons/bi";
+import { BsFillBookmarkFill } from "react-icons/bs";
+import { AiOutlineSearch } from "react-icons/ai";
 
 function App() {
+
+  const [menuContent, setMenuContent] = useState(null);
+  
+  const handleMenHover = () => {
+    setMenuContent(
+      <div className="px-10 py-4">
+        <li>TopWear</li>
+        <li>BottomWear</li>
+        <li>FootWear</li>
+        <li>SportWear</li>
+      </div>
+    );
+  };
+
+  const handleWomenHover = () => {
+    setMenuContent(
+      <div className="px-10 py-4">
+        <li>TopWear</li>
+        <li>FootWear</li>
+        <li>SportWear</li>
+        <li>Jewellery</li>
+      </div>
+    );
+  };
+
+  const handleMouseLeave = () => {
+    setMenuContent(null);
+  };
+
   return (
-    <main class="p-3">
+    <main class="p-3 ">
       <h1 class="text-center text-lg text-red-500">Hello Good Morning </h1>
 
-      <ul class="flex flex-col lg:flex-row gap-4 justify-between items-center">
-        <ul class="flex gap-6 bg-violet-300 border-violet-600 rounded-md my-4 p-2">
-          <li class="font-mono font-bold"> MEN</li>
-          <li class="font-mono font-bold"> WOMEN</li>
-          <li class="font-mono font-bold"> KIDS</li>
-          <li class="font-mono font-bold"> HOME&LIVING</li>
-          <li class="font-mono font-bold"> BEAUTY</li>
+      <ul className="flex justify-between items-center bg-violet-300 px-14 py-2">
+        <div
+          className="flex group cursor-pointer relative"
+          onMouseEnter={handleMenHover}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="font-mono font-bold px-6">MEN</div>
+          {menuContent && (
+            <ul className="hidden absolute left-0 mt-7 py-2 bg-white border rounded-lg shadow-lg group-hover:block">
+              {menuContent}
+            </ul>
+          )}
+        </div>
+
+        <div
+          className="flex group cursor-pointer relative"
+          onMouseEnter={handleWomenHover}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="font-mono font-bold px-6">WOMEN</div>
+          {menuContent && (
+            <ul className="hidden absolute left-0 mt-7 py-2 bg-white border rounded-lg shadow-lg group-hover:block">
+              {menuContent}
+            </ul>
+          )}
+        </div>
+        <li class="font-mono font-bold"> KIDS</li>
+        <li class="font-mono font-bold"> HOME&LIVING</li>
+        <li class="font-mono font-bold"> BEAUTY</li>
+        <div class="relative">
+          <AiOutlineSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
           <input
-            class="placeholder-gray-400 text-gray-700 bg-white rounded shadow focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
+            class="pl-10 placeholder-gray-400 text-gray-700 bg-white rounded shadow focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
             placeholder="Enter your search query...."
           />
-          <ul class="flex gap-6">
-            <li class="font-mono font-bold"> PROFILE</li>
-            <li class="font-mono font-bold"> WISHLIST</li>
-            <li class="font-mono font-bold"> BAG</li>
-          </ul>
+        </div>
+
+        <ul class="flex gap-6">
+          <li class="font-mono font-bold">
+            <BsFillBookmarkFill />
+          </li>
+          <li class="font-mono font-bold">
+            <FiShoppingCart />
+          </li>
+          <li class="font-mono font-bold">
+            <BiUserCircle />
+          </li>
         </ul>
       </ul>
 
@@ -55,8 +120,7 @@ function App() {
           Click Me
         </button>
       </div>
-
-      <br></br>
+      <br />
       <div class="flex">
         <div class="px-4">
           <div class="bg-zinc-400 h-24 w-28 rounded-lg"></div>
@@ -87,7 +151,7 @@ function App() {
         </div>
       </div>
 
-      <hr class="px-6 py-1"></hr>
+      <hr class="px-6 py-1" />
       <div class="flex">
         <div class="px-4">
           <div class="bg-zinc-400 h-24 w-28"></div>
@@ -106,9 +170,9 @@ function App() {
           <span class="font-semibold">Subtotal :</span>
         </div>
       </div>
-      <hr class="px-6 py-1"></hr>
+      <hr class="px-6 py-1" />
 
-      <hr class="px-6 py-1"></hr>
+      <hr class="px-6 py-1" />
       <div class="flex">
         <div class="px-4">
           <div class="bg-zinc-400 h-24 w-28"></div>
@@ -128,7 +192,7 @@ function App() {
         </div>
       </div>
 
-      <hr></hr>
+      <hr />
       <div class="flex py-4 px-36">
         <div>
           <span class="font-semibold">Order Total </span>
@@ -138,12 +202,18 @@ function App() {
         </div>
       </div>
 
-      <hr></hr>
-      <br></br>
+      <hr />
+      <br />
       <div>
         <button class="ml-72 rounded-2xl bg-black px-4 py-1 text-white ">
           Continue Shopping
         </button>
+      </div>
+
+      <div class="grid justify-center">
+        <div class="bg-slate-400 rounded-md font-bold text-center px-8 py-12">
+          Thank You For Shopping !!!!😊😊
+        </div>
       </div>
 
       <ul class="my-2 space-y-2">
